@@ -45,7 +45,7 @@ def guessNumber(previousGuesses, digits):
     guess = input("What is your guess? \n")
     if not guess.isdigit() or len(guess) != len(digits):
         print(f"Please enter {len(digits)}-digit number")
-        return guessNumber(digits)
+        return guessNumber(previousGuesses, digits)
     guessArray = [int(char) for char in guess]
     if digits == guessArray:
         print(
@@ -64,10 +64,10 @@ def selectDifficulty():
             return int(difficultyInput)
         else:
             print("Amount must be between 1 and 10\n")
-            selectDifficulty()
+            return selectDifficulty()
     except ValueError:
         print("Please input a number :)\n")
-        selectDifficulty()
+        return selectDifficulty()
 
 
 def main():
