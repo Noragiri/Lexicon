@@ -1,20 +1,28 @@
-class Something:
-    def __init__(self, data: dict):
-        self.__dict__ = data
-
-    def __str__(self):
-        str_rep = "".join(
-            list(f"{key}={value} " for key, value in self.__dict__.items())
-        )
-        return str_rep
+class A:
+    def __init__(self, value):
+        print(f"In A.__init__ and value = {value}")
+        self.value = value
 
 
-data_dict1 = {"a": 10, "b": 20, "name": "One"}
+class B(A):
+    def __init__(self, value):
+        print(f"In B.__init__ and value = {value}")
+        super().__init__(value)
+        self.value += 10
 
-data_dict2 = {"c": 15, "d": 25, "name": "Two"}
 
-s1 = Something(data_dict1)
-s2 = Something(data_dict2)
+class C(A):
+    def __init__(self, value):
+        print(f"In C.__init__ and value = {value}")
+        super().__init__(value)
+        self.value *= 4
 
-print(s1)
-print(s2)
+
+class D(B, C):
+    def __init__(self, value):
+        print(f"In D.__init__ and value = {value}")
+        super().__init__(value)
+
+
+d = D(10)
+print(d.value)
