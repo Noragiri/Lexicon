@@ -1,0 +1,11 @@
+	----Bootstrap Grid Lab----
+
+1.	There are 2 files in this folder. The grid_example.html is the one i showed you in the meeting.
+	Open it in the browser and choose inspect and hover over each row/column and try to understand it.
+	Or simply use it as a helper file. 
+
+
+2. 	Open index.html by a dubble click to read the instructions of the Coffe Lover Project.
+3. 	Open the index.html in Visual Studio Code to edit the code and finish the Lab.
+
+	Good Luck and dont hesitate to ask any questions you might have to Haithem or Sowjanya.
