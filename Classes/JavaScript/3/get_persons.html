@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Persons</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Person List</h1>
+    <table id="personTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <script>
+        // Person class definition
+        class Person {
+            constructor(firstName, lastName, age, email) {
+                this.firstName = firstName || '';
+                this.lastName = lastName || '';
+                this.age = age || '';
+                this.email = email || '';
+            }
+
+            toTableRow() {
+                return `<tr>
+                            <td>${this.firstName}</td>
+                            <td>${this.lastName}</td>
+                            <td>${this.age}</td>
+                            <td>${this.email}</td>
+                        </tr>`;
+            }
+        }
+
+        // Function to create the array of Person objects
+        function getPersons() {
+            return [
+                new Person('Maria', 'Petterson', 22, 'mp@gmail.com'),
+                new Person('Lexicon'),
+                new Person('Stefan', 'Larsson', 25),
+                new Person('Peter', 'Jansson', 24, 'ptr@live.com')
+            ];
+        }
+
+        // Displaying the list of persons in the HTML table
+        const persons = getPersons();
+        const tableBody = document.querySelector("#personTable tbody");
+
+        persons.forEach(person => {
+            const row = document.createElement("tr");
+            row.innerHTML = person.toTableRow();
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
