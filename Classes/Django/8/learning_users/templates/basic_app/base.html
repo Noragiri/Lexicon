@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">DJANGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    {% if request.user.is_authenticated %}
+                    <li>Welcome, {{ request.user.username }}!</li>
+                    <li><a href="{% url 'basic_app:logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'basic_app:register' %}">Register</a>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'basic_app:login' %}">Login</a>
+                        {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'admin:index' %}">ADMIN</a></li>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        {% block body_block %}
+        <!-- Anything outside of this will be inherited if you extend! -->
+        {% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pzjw8f+ua7Kw1TIq0HiQ+PfPUv1mV06p4Y0P5pNfgr9g12j0dA4r7Pf94pV4f+Jp6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
