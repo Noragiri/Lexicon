@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Users List</title>
+    </head>
+    <body>
+        <h1>Here are your users:</h1>
+        <ol>
+        {% for user in users_list %}
+            <li>User info:</li>
+            <ul>
+                <li>First Name: {{ user.0 }}</li>
+                <li>Last Name: {{ user.1 }}</li>
+                <li>Email: {{ user.2 }}</li>
+            </ul>
+        {% endfor %}
+        </ol>
+    </body>
+</html>
