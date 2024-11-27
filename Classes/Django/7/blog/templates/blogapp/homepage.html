@@ -1,0 +1,12 @@
+{% extends "blogapp/base.html" %}
+{% block body_block %}
+<h1>WELCOME TO HOMEPAGE</h1>
+<h2>Recent posts:</h2>
+<ol>
+    {% for post in post_list %}
+    <li>
+        <a href="{% url 'blogapp:post' post.id %}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}
